@@ -33,7 +33,7 @@ const HamburgerMenu = styled.div`
         transition: transform 400ms cubic-bezier(0.075, 0.82, 0.165, 1) 0.1s; 
     }
 
-    &.open {
+    &:open {
         span {
             left: 3px;
 

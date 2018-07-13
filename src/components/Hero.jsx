@@ -5,24 +5,37 @@ import downSVG from 'assets/down.svg';
 import profilePic from 'assets/Jacob-Heflin-2017.jpg';
 const Hero = () => {
     return (<HeroWrapper>
-        <BackgroundImage />
         <Content>
+            <Background />
             <h1>Jacob Helfin</h1>
             <h2>User Experiences Design</h2>
-                <img className='profile-pic' src={profilePic} alt='Profile Pic' />
-                <svg xmlns='http://www.w3.org/2000/svg' id='Layer_1' width='64' height='64'
-                    viewBox='0 0 64 64'>
-                    <path strokeLinejoin='bevel'
-                        strokeMiterlimit='10' d='M15,24L32,41L49,24' strokeDasharray='49,51' />
-                </svg>
+            <img className='profile-pic' src={profilePic} alt='Profile Pic' />
+            <svg xmlns='http://www.w3.org/2000/svg' id='Layer_1' width='64' height='64'
+                viewBox='0 0 64 64'>
+                <path strokeLinejoin='bevel'
+                    strokeMiterlimit='10' d='M15,24L32,41L49,24' strokeDasharray='49,51' />
+            </svg>
         </Content>
 
     </HeroWrapper>
     );
 }
+const Background = styled.div`
+    background: url(${bg}) #999;
+    background-size: cover;
+    background-position: center;
+    /* padding-top: calc(9/16 * 100%); */
+    filter: brightness(0.9);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left:0;
+    z-index: -1;
+`;
 
 const Content = styled.div`
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100%;
     top: 0;
@@ -32,6 +45,7 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     color: white;
+    height: 100vh;
 
     h1 {
         font-size: 54px;
@@ -43,6 +57,7 @@ const Content = styled.div`
     }
     .profile-pic {
         width: 250px;
+        margin-bottom: 25px;
         border-radius: 50%;
         border: 5px solid white;
     }
@@ -52,20 +67,15 @@ const Content = styled.div`
         stroke-width: '2';
     }
 
+    @media screen and (min-width: 1024px){
+        height: 70vh;
+        min-height: 700px;
+    }
+
 `;
 
-const BackgroundImage = styled.div`
-        background: url(${bg}) #999;
-        background-size: cover;
-        background-position: center;
-        padding-top: calc(9/16 * 100%);
-        filter: brightness(0.9);
-    `;
-
 const HeroWrapper = styled.div`
-        /* max-height:80vh; */
         overflow: hidden;
-        position: relative;
     `;
 
 export default Hero;
